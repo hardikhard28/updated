@@ -17,10 +17,10 @@ pipeline {
         stage('Build gradle') {
             steps {
                 script {
-                    // Use the checkout step to clone the Git repository
-                    echo 'hello'
-                    sh "chmod +x gradlew"
-                    sh "./gradlew clean build --refresh-dependencies"
+                     dir('workspace') {
+                        echo 'hello'
+                        sh "./gradlew build"
+                     }
                 }
             }
         }
